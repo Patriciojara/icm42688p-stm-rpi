@@ -1,0 +1,1019 @@
+15:11:12 **** Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.d" -MT"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.o"
+arm-none-eabi-gcc "../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.d" -MT"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.o"
+arm-none-eabi-gcc "../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.d" -MT"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.o"
+arm-none-eabi-gcc "../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.d" -MT"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.d" -MT"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.o"
+arm-none-eabi-gcc "../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.d" -MT"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.o"
+arm-none-eabi-gcc "../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.d" -MT"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.d" -MT"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.o"
+arm-none-eabi-gcc "../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.d" -MT"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.o"
+arm-none-eabi-gcc "../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.d" -MT"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.o"
+arm-none-eabi-gcc "../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.d" -MT"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.d" -MT"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.o"
+arm-none-eabi-gcc "../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.d" -MT"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.o"
+arm-none-eabi-gcc "../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.d" -MT"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.d" -MT"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.o"
+arm-none-eabi-gcc "../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.d" -MT"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.d" -MT"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.o"
+arm-none-eabi-gcc "../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.d" -MT"Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi_ex.o"
+arm-none-eabi-gcc -mcpu=cortex-m7 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Core/Startup/startup_stm32h723vgtx.d" -MT"Core/Startup/startup_stm32h723vgtx.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Startup/startup_stm32h723vgtx.o" "../Core/Startup/startup_stm32h723vgtx.s"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_hal_msp.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_hal_msp.d" -MT"Core/Src/stm32h7xx_hal_msp.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/syscalls.o"
+arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sysmem.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32h7xx.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32h7xx.d" -MT"Core/Src/system_stm32h7xx.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system_stm32h7xx.o"
+../Core/Src/main.c:67:10: fatal error: spi.h: No such file or directory
+   67 | #include "spi.h"   // generado por CubeMX
+      |          ^~~~~~~
+compilation terminated.
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+15:11:40 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:67:10: fatal error: spi.h: No such file or directory
+   67 | #include "spi.h"   // generado por CubeMX
+      |          ^~~~~~~
+compilation terminated.
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+15:11:48 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:67:10: fatal error: spi.h: No such file or directory
+   67 | #include "spi.h"   // generado por CubeMX
+      |          ^~~~~~~
+compilation terminated.
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+15:11:59 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:67:10: fatal error: spi.h: No such file or directory
+   67 | #include "spi.h"   // generado por CubeMX
+      |          ^~~~~~~
+compilation terminated.
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+15:12:42 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:67:10: fatal error: spi.h: No such file or directory
+   67 | #include "spi.h"   // generado por CubeMX
+      |          ^~~~~~~
+compilation terminated.
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+15:13:19 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:67:10: fatal error: spi.h: No such file or directory
+   67 | #include "spi.h"   // generado por CubeMX
+      |          ^~~~~~~
+compilation terminated.
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+15:13:44 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:24:10: fatal error: spi.h: No such file or directory
+   24 | #include "spi.h"   // generado por CubeMX
+      |          ^~~~~~~
+compilation terminated.
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+15:13:59 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:24:10: fatal error: spi.h: No such file or directory
+   24 | #include "spi.h"   // generado por CubeMX
+      |          ^~~~~~~
+compilation terminated.
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+15:14:23 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'ICM42688_Init':
+../Core/Src/main.c:128:13: warning: unused variable 'buf' [-Wunused-variable]
+  128 |     uint8_t buf[1];
+      |             ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:367:13: error: invalid storage class for function 'MX_SPI1_Init'
+  367 | static void MX_SPI1_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:415:13: error: invalid storage class for function 'MX_SPI6_Init'
+  415 | static void MX_SPI6_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:462:13: error: invalid storage class for function 'MX_GPIO_Init'
+  462 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:541:1: error: expected declaration or statement at end of input
+  541 | }
+      | ^
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:54:13: warning: 'MPU_Config' used but never defined
+   54 | static void MPU_Config(void);
+      |             ^~~~~~~~~~
+../Core/Src/main.c:55:13: warning: 'MX_GPIO_Init' used but never defined
+   55 | static void MX_GPIO_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:56:13: warning: 'MX_SPI1_Init' used but never defined
+   56 | static void MX_SPI1_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:57:13: warning: 'MX_SPI6_Init' used but never defined
+   57 | static void MX_SPI6_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:532:6: warning: 'Error_Handler' defined but not used [-Wunused-function]
+  532 | void Error_Handler(void)
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:501:6: warning: 'MPU_Config' defined but not used [-Wunused-function]
+  501 | void MPU_Config(void)
+      |      ^~~~~~~~~~
+../Core/Src/main.c:462:13: warning: 'MX_GPIO_Init' defined but not used [-Wunused-function]
+  462 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:415:13: warning: 'MX_SPI6_Init' defined but not used [-Wunused-function]
+  415 | static void MX_SPI6_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:367:13: warning: 'MX_SPI1_Init' defined but not used [-Wunused-function]
+  367 | static void MX_SPI1_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:307:6: warning: 'SystemClock_Config' defined but not used [-Wunused-function]
+  307 | void SystemClock_Config(void)
+      |      ^~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+15:18:18 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'ICM42688_Init':
+../Core/Src/main.c:128:13: warning: unused variable 'buf' [-Wunused-variable]
+  128 |     uint8_t buf[1];
+      |             ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:367:13: error: invalid storage class for function 'MX_SPI1_Init'
+  367 | static void MX_SPI1_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:415:13: error: invalid storage class for function 'MX_SPI6_Init'
+  415 | static void MX_SPI6_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:462:13: error: invalid storage class for function 'MX_GPIO_Init'
+  462 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:541:1: error: expected declaration or statement at end of input
+  541 | }
+      | ^
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:54:13: warning: 'MPU_Config' used but never defined
+   54 | static void MPU_Config(void);
+      |             ^~~~~~~~~~
+../Core/Src/main.c:55:13: warning: 'MX_GPIO_Init' used but never defined
+   55 | static void MX_GPIO_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:56:13: warning: 'MX_SPI1_Init' used but never defined
+   56 | static void MX_SPI1_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:57:13: warning: 'MX_SPI6_Init' used but never defined
+   57 | static void MX_SPI6_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:532:6: warning: 'Error_Handler' defined but not used [-Wunused-function]
+  532 | void Error_Handler(void)
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:501:6: warning: 'MPU_Config' defined but not used [-Wunused-function]
+  501 | void MPU_Config(void)
+      |      ^~~~~~~~~~
+../Core/Src/main.c:462:13: warning: 'MX_GPIO_Init' defined but not used [-Wunused-function]
+  462 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:415:13: warning: 'MX_SPI6_Init' defined but not used [-Wunused-function]
+  415 | static void MX_SPI6_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:367:13: warning: 'MX_SPI1_Init' defined but not used [-Wunused-function]
+  367 | static void MX_SPI1_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:307:6: warning: 'SystemClock_Config' defined but not used [-Wunused-function]
+  307 | void SystemClock_Config(void)
+      |      ^~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+15:20:12 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'ICM42688_Init':
+../Core/Src/main.c:128:13: warning: unused variable 'buf' [-Wunused-variable]
+  128 |     uint8_t buf[1];
+      |             ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:367:13: error: invalid storage class for function 'MX_SPI1_Init'
+  367 | static void MX_SPI1_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:415:13: error: invalid storage class for function 'MX_SPI6_Init'
+  415 | static void MX_SPI6_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:462:13: error: invalid storage class for function 'MX_GPIO_Init'
+  462 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:541:1: error: expected declaration or statement at end of input
+  541 | }
+      | ^
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:54:13: warning: 'MPU_Config' used but never defined
+   54 | static void MPU_Config(void);
+      |             ^~~~~~~~~~
+../Core/Src/main.c:55:13: warning: 'MX_GPIO_Init' used but never defined
+   55 | static void MX_GPIO_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:56:13: warning: 'MX_SPI1_Init' used but never defined
+   56 | static void MX_SPI1_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:57:13: warning: 'MX_SPI6_Init' used but never defined
+   57 | static void MX_SPI6_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:532:6: warning: 'Error_Handler' defined but not used [-Wunused-function]
+  532 | void Error_Handler(void)
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:501:6: warning: 'MPU_Config' defined but not used [-Wunused-function]
+  501 | void MPU_Config(void)
+      |      ^~~~~~~~~~
+../Core/Src/main.c:462:13: warning: 'MX_GPIO_Init' defined but not used [-Wunused-function]
+  462 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:415:13: warning: 'MX_SPI6_Init' defined but not used [-Wunused-function]
+  415 | static void MX_SPI6_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:367:13: warning: 'MX_SPI1_Init' defined but not used [-Wunused-function]
+  367 | static void MX_SPI1_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:307:6: warning: 'SystemClock_Config' defined but not used [-Wunused-function]
+  307 | void SystemClock_Config(void)
+      |      ^~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+15:21:16 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'ICM42688_Init':
+../Core/Src/main.c:128:13: warning: unused variable 'buf' [-Wunused-variable]
+  128 |     uint8_t buf[1];
+      |             ^~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:367:13: error: invalid storage class for function 'MX_SPI1_Init'
+  367 | static void MX_SPI1_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:415:13: error: invalid storage class for function 'MX_SPI6_Init'
+  415 | static void MX_SPI6_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:462:13: error: invalid storage class for function 'MX_GPIO_Init'
+  462 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:541:1: error: expected declaration or statement at end of input
+  541 | }
+      | ^
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:54:13: warning: 'MPU_Config' used but never defined
+   54 | static void MPU_Config(void);
+      |             ^~~~~~~~~~
+../Core/Src/main.c:55:13: warning: 'MX_GPIO_Init' used but never defined
+   55 | static void MX_GPIO_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:56:13: warning: 'MX_SPI1_Init' used but never defined
+   56 | static void MX_SPI1_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:57:13: warning: 'MX_SPI6_Init' used but never defined
+   57 | static void MX_SPI6_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:532:6: warning: 'Error_Handler' defined but not used [-Wunused-function]
+  532 | void Error_Handler(void)
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:501:6: warning: 'MPU_Config' defined but not used [-Wunused-function]
+  501 | void MPU_Config(void)
+      |      ^~~~~~~~~~
+../Core/Src/main.c:462:13: warning: 'MX_GPIO_Init' defined but not used [-Wunused-function]
+  462 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:415:13: warning: 'MX_SPI6_Init' defined but not used [-Wunused-function]
+  415 | static void MX_SPI6_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:367:13: warning: 'MX_SPI1_Init' defined but not used [-Wunused-function]
+  367 | static void MX_SPI1_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:307:6: warning: 'SystemClock_Config' defined but not used [-Wunused-function]
+  307 | void SystemClock_Config(void)
+      |      ^~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+15:21:41 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:366:13: error: invalid storage class for function 'MX_SPI1_Init'
+  366 | static void MX_SPI1_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:414:13: error: invalid storage class for function 'MX_SPI6_Init'
+  414 | static void MX_SPI6_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:461:13: error: invalid storage class for function 'MX_GPIO_Init'
+  461 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:540:1: error: expected declaration or statement at end of input
+  540 | }
+      | ^
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:54:13: warning: 'MPU_Config' used but never defined
+   54 | static void MPU_Config(void);
+      |             ^~~~~~~~~~
+../Core/Src/main.c:55:13: warning: 'MX_GPIO_Init' used but never defined
+   55 | static void MX_GPIO_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:56:13: warning: 'MX_SPI1_Init' used but never defined
+   56 | static void MX_SPI1_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:57:13: warning: 'MX_SPI6_Init' used but never defined
+   57 | static void MX_SPI6_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:531:6: warning: 'Error_Handler' defined but not used [-Wunused-function]
+  531 | void Error_Handler(void)
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:500:6: warning: 'MPU_Config' defined but not used [-Wunused-function]
+  500 | void MPU_Config(void)
+      |      ^~~~~~~~~~
+../Core/Src/main.c:461:13: warning: 'MX_GPIO_Init' defined but not used [-Wunused-function]
+  461 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:414:13: warning: 'MX_SPI6_Init' defined but not used [-Wunused-function]
+  414 | static void MX_SPI6_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:366:13: warning: 'MX_SPI1_Init' defined but not used [-Wunused-function]
+  366 | static void MX_SPI1_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:306:6: warning: 'SystemClock_Config' defined but not used [-Wunused-function]
+  306 | void SystemClock_Config(void)
+      |      ^~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+15:22:32 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:366:13: error: invalid storage class for function 'MX_SPI1_Init'
+  366 | static void MX_SPI1_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:414:13: error: invalid storage class for function 'MX_SPI6_Init'
+  414 | static void MX_SPI6_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:461:13: error: invalid storage class for function 'MX_GPIO_Init'
+  461 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:540:1: error: expected declaration or statement at end of input
+  540 | }
+      | ^
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:54:13: warning: 'MPU_Config' used but never defined
+   54 | static void MPU_Config(void);
+      |             ^~~~~~~~~~
+../Core/Src/main.c:55:13: warning: 'MX_GPIO_Init' used but never defined
+   55 | static void MX_GPIO_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:56:13: warning: 'MX_SPI1_Init' used but never defined
+   56 | static void MX_SPI1_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:57:13: warning: 'MX_SPI6_Init' used but never defined
+   57 | static void MX_SPI6_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:531:6: warning: 'Error_Handler' defined but not used [-Wunused-function]
+  531 | void Error_Handler(void)
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:500:6: warning: 'MPU_Config' defined but not used [-Wunused-function]
+  500 | void MPU_Config(void)
+      |      ^~~~~~~~~~
+../Core/Src/main.c:461:13: warning: 'MX_GPIO_Init' defined but not used [-Wunused-function]
+  461 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:414:13: warning: 'MX_SPI6_Init' defined but not used [-Wunused-function]
+  414 | static void MX_SPI6_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:366:13: warning: 'MX_SPI1_Init' defined but not used [-Wunused-function]
+  366 | static void MX_SPI1_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:306:6: warning: 'SystemClock_Config' defined but not used [-Wunused-function]
+  306 | void SystemClock_Config(void)
+      |      ^~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+15:28:35 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:366:13: error: invalid storage class for function 'MX_SPI1_Init'
+  366 | static void MX_SPI1_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:414:13: error: invalid storage class for function 'MX_SPI6_Init'
+  414 | static void MX_SPI6_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:461:13: error: invalid storage class for function 'MX_GPIO_Init'
+  461 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:540:1: error: expected declaration or statement at end of input
+  540 | }
+      | ^
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:54:13: warning: 'MPU_Config' used but never defined
+   54 | static void MPU_Config(void);
+      |             ^~~~~~~~~~
+../Core/Src/main.c:55:13: warning: 'MX_GPIO_Init' used but never defined
+   55 | static void MX_GPIO_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:56:13: warning: 'MX_SPI1_Init' used but never defined
+   56 | static void MX_SPI1_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:57:13: warning: 'MX_SPI6_Init' used but never defined
+   57 | static void MX_SPI6_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:531:6: warning: 'Error_Handler' defined but not used [-Wunused-function]
+  531 | void Error_Handler(void)
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:500:6: warning: 'MPU_Config' defined but not used [-Wunused-function]
+  500 | void MPU_Config(void)
+      |      ^~~~~~~~~~
+../Core/Src/main.c:461:13: warning: 'MX_GPIO_Init' defined but not used [-Wunused-function]
+  461 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:414:13: warning: 'MX_SPI6_Init' defined but not used [-Wunused-function]
+  414 | static void MX_SPI6_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:366:13: warning: 'MX_SPI1_Init' defined but not used [-Wunused-function]
+  366 | static void MX_SPI1_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:306:6: warning: 'SystemClock_Config' defined but not used [-Wunused-function]
+  306 | void SystemClock_Config(void)
+      |      ^~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+15:28:46 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:366:13: error: invalid storage class for function 'MX_SPI1_Init'
+  366 | static void MX_SPI1_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:414:13: error: invalid storage class for function 'MX_SPI6_Init'
+  414 | static void MX_SPI6_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:461:13: error: invalid storage class for function 'MX_GPIO_Init'
+  461 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:540:1: error: expected declaration or statement at end of input
+  540 | }
+      | ^
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:54:13: warning: 'MPU_Config' used but never defined
+   54 | static void MPU_Config(void);
+      |             ^~~~~~~~~~
+../Core/Src/main.c:55:13: warning: 'MX_GPIO_Init' used but never defined
+   55 | static void MX_GPIO_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:56:13: warning: 'MX_SPI1_Init' used but never defined
+   56 | static void MX_SPI1_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:57:13: warning: 'MX_SPI6_Init' used but never defined
+   57 | static void MX_SPI6_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:531:6: warning: 'Error_Handler' defined but not used [-Wunused-function]
+  531 | void Error_Handler(void)
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:500:6: warning: 'MPU_Config' defined but not used [-Wunused-function]
+  500 | void MPU_Config(void)
+      |      ^~~~~~~~~~
+../Core/Src/main.c:461:13: warning: 'MX_GPIO_Init' defined but not used [-Wunused-function]
+  461 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:414:13: warning: 'MX_SPI6_Init' defined but not used [-Wunused-function]
+  414 | static void MX_SPI6_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:366:13: warning: 'MX_SPI1_Init' defined but not used [-Wunused-function]
+  366 | static void MX_SPI1_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:306:6: warning: 'SystemClock_Config' defined but not used [-Wunused-function]
+  306 | void SystemClock_Config(void)
+      |      ^~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+15:29:05 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:301:1: error: expected identifier or '(' before '}' token
+  301 | }
+      | ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+15:29:23 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:301:1: error: expected identifier or '(' before '}' token
+  301 | }
+      | ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+15:29:50 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:301:1: error: expected identifier or '(' before '}' token
+  301 | }
+      | ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+15:30:09 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  21752	     16	   1872	  23640	   5c58	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+15:30:18 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-size  icm42688p.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21752	     16	   1872	  23640	   5c58	icm42688p.elf
+Finished building: default.size.stdout
+ 
+16:06:53 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  21680	     16	   1872	  23568	   5c10	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+16:07:20 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-size  icm42688p.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21680	     16	   1872	  23568	   5c10	icm42688p.elf
+Finished building: default.size.stdout
+ 
+16:17:47 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:267:3: warning: data definition has no type or storage class
+  267 |   Start_SPI6_Slave();
+      |   ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:267:3: warning: type defaults to 'int' in declaration of 'Start_SPI6_Slave' [-Wimplicit-int]
+../Core/Src/main.c:267:3: error: conflicting types for 'Start_SPI6_Slave'; have 'int()'
+../Core/Src/main.c:198:6: note: previous definition of 'Start_SPI6_Slave' with type 'void(void)'
+  198 | void Start_SPI6_Slave(void)
+      |      ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:274:3: error: expected identifier or '(' before 'while'
+  274 |   while (1)
+      |   ^~~~~
+../Core/Src/main.c:296:17: error: expected declaration specifiers or '...' before numeric constant
+  296 |       HAL_Delay(10); // 100 Hz de actualización del buffer
+      |                 ^~
+../Core/Src/main.c:297:3: error: expected identifier or '(' before '}' token
+  297 |   }
+      |   ^
+../Core/Src/main.c:299:1: error: expected identifier or '(' before '}' token
+  299 | }
+      | ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+16:18:04 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:267:3: warning: data definition has no type or storage class
+  267 |   Start_SPI6_Slave();
+      |   ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:267:3: warning: type defaults to 'int' in declaration of 'Start_SPI6_Slave' [-Wimplicit-int]
+../Core/Src/main.c:267:3: error: conflicting types for 'Start_SPI6_Slave'; have 'int()'
+../Core/Src/main.c:198:6: note: previous definition of 'Start_SPI6_Slave' with type 'void(void)'
+  198 | void Start_SPI6_Slave(void)
+      |      ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:274:3: error: expected identifier or '(' before 'while'
+  274 |   while (1)
+      |   ^~~~~
+../Core/Src/main.c:296:17: error: expected declaration specifiers or '...' before numeric constant
+  296 |       HAL_Delay(10); // 100 Hz de actualización del buffer
+      |                 ^~
+../Core/Src/main.c:299:1: error: expected identifier or '(' before '}' token
+  299 | }
+      | ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+16:18:36 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:269:19: warning: unused variable 'imu' [-Wunused-variable]
+  269 |   ICM42688_Data_t imu;
+      |                   ^~~
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  18704	     16	   1872	  20592	   5070	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+16:21:39 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-size  icm42688p.elf 
+   text	   data	    bss	    dec	    hex	filename
+  18704	     16	   1872	  20592	   5070	icm42688p.elf
+Finished building: default.size.stdout
+ 
+16:48:55 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-size  icm42688p.elf 
+   text	   data	    bss	    dec	    hex	filename
+  18704	     16	   1872	  20592	   5070	icm42688p.elf
+Finished building: default.size.stdout
+ 
+17:45:23 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-size  icm42688p.elf 
+   text	   data	    bss	    dec	    hex	filename
+  18704	     16	   1872	  20592	   5070	icm42688p.elf
+Finished building: default.size.stdout
+ 
+17:50:28 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  21432	     16	   1872	  23320	   5b18	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+17:55:59 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:269:19: warning: unused variable 'imu' [-Wunused-variable]
+  269 |   ICM42688_Data_t imu;
+      |                   ^~~
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  18704	     16	   1872	  20592	   5070	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+17:58:29 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-size  icm42688p.elf 
+   text	   data	    bss	    dec	    hex	filename
+  18704	     16	   1872	  20592	   5070	icm42688p.elf
+Finished building: default.size.stdout
+ 
+18:02:09 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  21516	     16	   1872	  23404	   5b6c	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+18:03:46 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  21516	     16	   1872	  23404	   5b6c	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+18:05:10 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  21516	     16	   1872	  23404	   5b6c	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+18:07:17 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  21516	     16	   1872	  23404	   5b6c	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+18:15:30 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-size  icm42688p.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21516	     16	   1872	  23404	   5b6c	icm42688p.elf
+Finished building: default.size.stdout
+ 
+18:54:56 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_hal_msp.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_hal_msp.d" -MT"Core/Src/stm32h7xx_hal_msp.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_hal_msp.o"
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  21556	     16	   1872	  23444	   5b94	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+18:57:12 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:269:19: warning: unused variable 'imu' [-Wunused-variable]
+  269 |   ICM42688_Data_t imu;
+      |                   ^~~
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  18816	     16	   1872	  20704	   50e0	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+18:59:42 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-size  icm42688p.elf 
+   text	   data	    bss	    dec	    hex	filename
+  18816	     16	   1872	  20704	   50e0	icm42688p.elf
+Finished building: default.size.stdout
+ 
+19:00:25 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  21556	     16	   1872	  23444	   5b94	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+19:09:52 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  21664	     16	   1872	  23552	   5c00	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+19:25:24 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:269:19: warning: unused variable 'imu' [-Wunused-variable]
+  269 |   ICM42688_Data_t imu;
+      |                   ^~~
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  21360	     16	   1872	  23248	   5ad0	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+14:43:52 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:271:19: warning: unused variable 'imu' [-Wunused-variable]
+  271 |   ICM42688_Data_t imu;
+      |                   ^~~
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  21376	     16	   1872	  23264	   5ae0	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+14:46:43 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-size  icm42688p.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21376	     16	   1872	  23264	   5ae0	icm42688p.elf
+Finished building: default.size.stdout
+ 
+15:02:39 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:269:19: warning: unused variable 'imu' [-Wunused-variable]
+  269 |   ICM42688_Data_t imu;
+      |                   ^~~
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  21360	     16	   1872	  23248	   5ad0	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+15:03:54 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:271:19: warning: unused variable 'imu' [-Wunused-variable]
+  271 |   ICM42688_Data_t imu;
+      |                   ^~~
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  21376	     16	   1872	  23264	   5ae0	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+15:23:13 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:271:19: warning: unused variable 'imu' [-Wunused-variable]
+  271 |   ICM42688_Data_t imu;
+      |                   ^~~
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  21376	     16	   1872	  23264	   5ae0	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+15:30:48 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:297:19: warning: unused variable 'imu' [-Wunused-variable]
+  297 |   ICM42688_Data_t imu;
+      |                   ^~~
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  20700	     16	   1872	  22588	   583c	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+15:35:29 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_hal_msp.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_hal_msp.d" -MT"Core/Src/stm32h7xx_hal_msp.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_hal_msp.o"
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  20700	     16	   1872	  22588	   583c	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+16:29:23 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  21680	     16	   1872	  23568	   5c10	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+16:30:53 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-size  icm42688p.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21680	     16	   1872	  23568	   5c10	icm42688p.elf
+Finished building: default.size.stdout
+ 
+16:39:48 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-size  icm42688p.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21680	     16	   1872	  23568	   5c10	icm42688p.elf
+Finished building: default.size.stdout
+ 
+16:53:24 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  21664	     16	   1872	  23552	   5c00	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+17:10:26 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  22012	     16	   1872	  23900	   5d5c	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+18:02:19 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-size  icm42688p.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22012	     16	   1872	  23900	   5d5c	icm42688p.elf
+Finished building: default.size.stdout
+ 

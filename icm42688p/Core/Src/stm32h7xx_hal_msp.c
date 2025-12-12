@@ -86,15 +86,15 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef* hspi)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
   RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
-  if(hspi->Instance==SPI1)
+  if(hspi->Instance==SPI2)
   {
-    /* USER CODE BEGIN SPI1_MspInit 0 */
+    /* USER CODE BEGIN SPI2_MspInit 0 */
 
-    /* USER CODE END SPI1_MspInit 0 */
+    /* USER CODE END SPI2_MspInit 0 */
 
   /** Initializes the peripherals clock
   */
-    PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_SPI1;
+    PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_SPI2;
     PeriphClkInitStruct.Spi123ClockSelection = RCC_SPI123CLKSOURCE_PLL;
     if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
     {
@@ -102,25 +102,78 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef* hspi)
     }
 
     /* Peripheral clock enable */
-    __HAL_RCC_SPI1_CLK_ENABLE();
+    __HAL_RCC_SPI2_CLK_ENABLE();
 
-    __HAL_RCC_GPIOA_CLK_ENABLE();
-    /**SPI1 GPIO Configuration
-    PA5     ------> SPI1_SCK
-    PA6     ------> SPI1_MISO
-    PA7     ------> SPI1_MOSI
+    __HAL_RCC_GPIOC_CLK_ENABLE();
+    __HAL_RCC_GPIOB_CLK_ENABLE();
+    /**SPI2 GPIO Configuration
+    PC1     ------> SPI2_MOSI
+    PC2_C     ------> SPI2_MISO
+    PB10     ------> SPI2_SCK
     */
-    GPIO_InitStruct.Pin = GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7;
+    GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_2;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+    GPIO_InitStruct.Alternate = GPIO_AF5_SPI2;
+    HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+    GPIO_InitStruct.Pin = GPIO_PIN_10;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-    GPIO_InitStruct.Alternate = GPIO_AF5_SPI1;
-    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+    GPIO_InitStruct.Alternate = GPIO_AF5_SPI2;
+    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-    /* USER CODE BEGIN SPI1_MspInit 1 */
+    /* USER CODE BEGIN SPI2_MspInit 1 */
 
-    /* USER CODE END SPI1_MspInit 1 */
+    /* USER CODE END SPI2_MspInit 1 */
+  }
+  else if(hspi->Instance==SPI6)
+  {
+    /* USER CODE BEGIN SPI6_MspInit 0 */
 
+    /* USER CODE END SPI6_MspInit 0 */
+
+  /** Initializes the peripherals clock
+  */
+    PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_SPI6;
+    PeriphClkInitStruct.Spi6ClockSelection = RCC_SPI6CLKSOURCE_D3PCLK1;
+    if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
+    {
+      Error_Handler();
+    }
+
+    /* Peripheral clock enable */
+    __HAL_RCC_SPI6_CLK_ENABLE();
+
+    __HAL_RCC_GPIOC_CLK_ENABLE();
+    __HAL_RCC_GPIOB_CLK_ENABLE();
+    /**SPI6 GPIO Configuration
+    PC12     ------> SPI6_SCK
+    PB4(NJTRST)     ------> SPI6_MISO
+    PB5     ------> SPI6_MOSI
+    */
+    GPIO_InitStruct.Pin = GPIO_PIN_12;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+    GPIO_InitStruct.Alternate = GPIO_AF5_SPI6;
+    HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+    GPIO_InitStruct.Pin = GPIO_PIN_4|GPIO_PIN_5;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+    GPIO_InitStruct.Alternate = GPIO_AF8_SPI6;
+    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+    /* SPI6 interrupt Init */
+    HAL_NVIC_SetPriority(SPI6_IRQn, 0, 0);
+    HAL_NVIC_EnableIRQ(SPI6_IRQn);
+    /* USER CODE BEGIN SPI6_MspInit 1 */
+
+    /* USER CODE END SPI6_MspInit 1 */
   }
 
 }
@@ -133,24 +186,49 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef* hspi)
   */
 void HAL_SPI_MspDeInit(SPI_HandleTypeDef* hspi)
 {
-  if(hspi->Instance==SPI1)
+  if(hspi->Instance==SPI2)
   {
-    /* USER CODE BEGIN SPI1_MspDeInit 0 */
+    /* USER CODE BEGIN SPI2_MspDeInit 0 */
 
-    /* USER CODE END SPI1_MspDeInit 0 */
+    /* USER CODE END SPI2_MspDeInit 0 */
     /* Peripheral clock disable */
-    __HAL_RCC_SPI1_CLK_DISABLE();
+    __HAL_RCC_SPI2_CLK_DISABLE();
 
-    /**SPI1 GPIO Configuration
-    PA5     ------> SPI1_SCK
-    PA6     ------> SPI1_MISO
-    PA7     ------> SPI1_MOSI
+    /**SPI2 GPIO Configuration
+    PC1     ------> SPI2_MOSI
+    PC2_C     ------> SPI2_MISO
+    PB10     ------> SPI2_SCK
     */
-    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7);
+    HAL_GPIO_DeInit(GPIOC, GPIO_PIN_1|GPIO_PIN_2);
 
-    /* USER CODE BEGIN SPI1_MspDeInit 1 */
+    HAL_GPIO_DeInit(GPIOB, GPIO_PIN_10);
 
-    /* USER CODE END SPI1_MspDeInit 1 */
+    /* USER CODE BEGIN SPI2_MspDeInit 1 */
+
+    /* USER CODE END SPI2_MspDeInit 1 */
+  }
+  else if(hspi->Instance==SPI6)
+  {
+    /* USER CODE BEGIN SPI6_MspDeInit 0 */
+
+    /* USER CODE END SPI6_MspDeInit 0 */
+    /* Peripheral clock disable */
+    __HAL_RCC_SPI6_CLK_DISABLE();
+
+    /**SPI6 GPIO Configuration
+    PC12     ------> SPI6_SCK
+    PB4(NJTRST)     ------> SPI6_MISO
+    PB5     ------> SPI6_MOSI
+    */
+    HAL_GPIO_DeInit(GPIOC, GPIO_PIN_12);
+
+    HAL_GPIO_DeInit(GPIOB, GPIO_PIN_4|GPIO_PIN_5);
+
+    /* SPI6 interrupt DeInit */
+    HAL_NVIC_DisableIRQ(SPI6_IRQn);
+    /* USER CODE BEGIN SPI6_MspDeInit 1 */
+
+    /* USER CODE END SPI6_MspDeInit 1 */
   }
 
 }

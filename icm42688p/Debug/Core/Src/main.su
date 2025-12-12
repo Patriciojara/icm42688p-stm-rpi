@@ -1,0 +1,16 @@
+../Core/Src/main.c:65:20:ICM_CS_Low	8	static
+../Core/Src/main.c:66:20:ICM_CS_High	8	static
+../Core/Src/main.c:84:9:ICM_ReadWhoAmI	24	static
+../Core/Src/main.c:109:19:ICM_WriteReg	24	static
+../Core/Src/main.c:125:19:ICM_ReadRegs	24	static
+../Core/Src/main.c:150:5:ICM42688_Init	16	static
+../Core/Src/main.c:200:5:ICM42688_ReadData	32	static
+../Core/Src/main.c:230:6:Start_SPI6_Slave	8	static
+../Core/Src/main.c:240:6:HAL_SPI_TxRxCpltCallback	16	static
+../Core/Src/main.c:263:5:main	40	static
+../Core/Src/main.c:359:6:SystemClock_Config	120	static
+../Core/Src/main.c:419:13:MX_SPI2_Init	8	static
+../Core/Src/main.c:467:13:MX_SPI6_Init	8	static
+../Core/Src/main.c:514:13:MX_GPIO_Init	40	static
+../Core/Src/main.c:563:6:MPU_Config	24	static
+../Core/Src/main.c:594:6:Error_Handler	4	static,ignoring_inline_asm

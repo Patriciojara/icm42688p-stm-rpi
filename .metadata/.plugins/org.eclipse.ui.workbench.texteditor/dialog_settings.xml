@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="hasShownOverlayPopupBefore" value="true"/>
+	<item key="replaceBarOpen" value="false"/>
+	<list key="searchhistory">
+		<item value="ICM42688_Data_t"/>
+		<item value="PWR_MGMT0"/>
+		<item value="hspi1"/>
+		<item value="spi6_tx_buf"/>
+		<item value="spi6_tx_buf[15]"/>
+		<item value=" HAL_SPI_TransmitReceive_IT"/>
+		<item value="buf[1];"/>
+		<item value="ICM_CS_Pin"/>
+	</list>
+</section>

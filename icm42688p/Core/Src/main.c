@@ -21,6 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+//#include "spi.h"   // generado por CubeMX
 
 /* USER CODE END Includes */
 
@@ -41,7 +42,8 @@
 
 /* Private variables ---------------------------------------------------------*/
 
-SPI_HandleTypeDef hspi1;
+SPI_HandleTypeDef hspi2;
+SPI_HandleTypeDef hspi6;
 
 /* USER CODE BEGIN PV */
 
@@ -51,8 +53,201 @@ SPI_HandleTypeDef hspi1;
 void SystemClock_Config(void);
 static void MPU_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_SPI1_Init(void);
+static void MX_SPI6_Init(void);
+static void MX_SPI2_Init(void);
 /* USER CODE BEGIN PFP */
+// Asumo que CubeMX generó un define para PB0 como ICM_CS_Pin y su puerto como ICM_CS_GPIO_Port
+// Si no, sustitúyelo por GPIOB y GPIO_PIN_0.
+
+#define ICM_CS_GPIO_Port   GPIOC
+#define ICM_CS_Pin         GPIO_PIN_5
+
+static inline void ICM_CS_Low(void)  { HAL_GPIO_WritePin(ICM_CS_GPIO_Port, ICM_CS_Pin, GPIO_PIN_RESET); }
+static inline void ICM_CS_High(void) { HAL_GPIO_WritePin(ICM_CS_GPIO_Port, ICM_CS_Pin, GPIO_PIN_SET); }
+
+extern SPI_HandleTypeDef hspi2;
+
+// Registros ICM42688 (Bank 0)
+#define ICM42688_REG_DEVICE_CONFIG   0x11
+#define ICM42688_REG_TEMP_DATA1      0x1D
+#define ICM42688_REG_ACCEL_XOUT_H    0x1F   // ACCEL_DATA_X1
+#define ICM42688_REG_GYRO_XOUT_H     0x25   // GYRO_DATA_X1
+#define ICM42688_REG_PWR_MGMT0       0x4E
+#define ICM42688_REG_GYRO_CONFIG0    0x4F
+#define ICM42688_REG_ACCEL_CONFIG0   0x50
+#define ICM42688_REG_WHO_AM_I        0x75
+
+#define ICM42688_SPI_READ            0x80
+
+
+
+uint8_t ICM_ReadWhoAmI(void)
+{
+    uint8_t tx[2] = { (uint8_t)(0x80 | 0x75), 0x00 }; // addr + dummy
+    uint8_t rx[2] = { 0, 0 };
+    uint8_t who = 0x00;
+
+    ICM_CS_Low();
+    if (HAL_SPI_TransmitReceive(&hspi2, tx, rx, 2, HAL_MAX_DELAY) == HAL_OK) {
+        who = rx[1];   // el dato normalmente cae aquí
+    }
+    ICM_CS_High();
+
+    return who;
+}
+
+
+
+
+
+
+
+
+
+
+// Transacción de 1 registro: escritura
+HAL_StatusTypeDef ICM_WriteReg(uint8_t reg, uint8_t data)
+{
+    HAL_StatusTypeDef status;
+    uint8_t tx[2];
+
+    tx[0] = reg & 0x7F;   // bit7 = 0 → write
+    tx[1] = data;
+
+    ICM_CS_Low();
+    status = HAL_SPI_Transmit(&hspi2, tx, 2, HAL_MAX_DELAY);
+    ICM_CS_High();
+
+    return status;
+}
+
+// Lectura de N bytes empezando en reg
+HAL_StatusTypeDef ICM_ReadRegs(uint8_t reg, uint8_t *pData, uint16_t size)
+{
+    HAL_StatusTypeDef status;
+    uint8_t txAddr = ICM42688_SPI_READ | (reg & 0x7F);
+
+    ICM_CS_Low();
+    status = HAL_SPI_Transmit(&hspi2, &txAddr, 1, HAL_MAX_DELAY);
+    if (status != HAL_OK) {
+        ICM_CS_High();
+        return status;
+    }
+
+    status = HAL_SPI_Receive(&hspi2, pData, size, HAL_MAX_DELAY);
+    ICM_CS_High();
+
+    return status;
+}
+
+
+
+
+// Inicializacion
+
+
+
+int ICM42688_Init(void)
+{
+    HAL_StatusTypeDef status;
+    uint8_t whoami = 0;
+
+
+    // 1) Soft reset (DEVICE_CONFIG bit0 = 1)
+    status = ICM_WriteReg(ICM42688_REG_DEVICE_CONFIG, 0x01);
+    if (status != HAL_OK) return -1;
+    HAL_Delay(2);  // datasheet pide ~1ms
+
+    // 2) Leer WHO_AM_I y verificar 0x47
+    status = ICM_ReadRegs(ICM42688_REG_WHO_AM_I, &whoami, 1);
+    if (status != HAL_OK) return -2;
+    if (whoami != 0x47)   return -3;  // error de conexión
+
+    // 3) PWR_MGMT0: habilitar Gyro LN + Accel LN, Temp ON
+    // GYRO_MODE=11b (LN), ACCEL_MODE=11b (LN) → 0b0000 1111 = 0x0F
+    status = ICM_WriteReg(ICM42688_REG_PWR_MGMT0, 0x0F);
+    if (status != HAL_OK) return -4;
+    HAL_Delay(50);
+
+    uint8_t pwr = 0;
+    status = ICM_ReadRegs(ICM42688_REG_PWR_MGMT0, &pwr, 1);
+    if (status != HAL_OK) return -7;
+    if (pwr != 0x0F) return -8;
+
+
+    // 4) GYRO_CONFIG0: dejar por defecto (±2000dps, 1kHz) o cambiar si quieres
+    // Ejemplo: 0x06 = FS ±2000dps, ODR 1kHz
+    status = ICM_WriteReg(ICM42688_REG_GYRO_CONFIG0, 0x06);
+    if (status != HAL_OK) return -5;
+
+    // 5) ACCEL_CONFIG0: por ejemplo ±4g, ODR 1kHz (revisa tabla exacta en el datasheet)
+    // Para algo simple podemos dejar también 0x06 (dependerá de la tabla de ACCEL_FS_SEL/ODR).
+    status = ICM_WriteReg(ICM42688_REG_ACCEL_CONFIG0, 0x06);
+    if (status != HAL_OK) return -6;
+
+    return 0; // OK
+}
+
+
+// Lectura
+
+typedef struct {
+    int16_t temp;
+    int16_t ax, ay, az;
+    int16_t gx, gy, gz;
+} ICM42688_Data_t;
+
+int ICM42688_ReadData(ICM42688_Data_t *out)
+{
+    uint8_t raw[14];
+    HAL_StatusTypeDef status;
+
+    // Leer TEMP_DATA1 (0x1D) hasta GYRO_DATA_Z0 (0x2A) → 14 bytes
+    status = ICM_ReadRegs(ICM42688_REG_TEMP_DATA1, raw, 14);
+    if (status != HAL_OK) return -1;
+
+    out->temp = (int16_t)((raw[0] << 8) | raw[1]);
+    out->ax   = (int16_t)((raw[2] << 8) | raw[3]);
+    out->ay   = (int16_t)((raw[4] << 8) | raw[5]);
+    out->az   = (int16_t)((raw[6] << 8) | raw[7]);
+    out->gx   = (int16_t)((raw[8] << 8) | raw[9]);
+    out->gy   = (int16_t)((raw[10] << 8) | raw[11]);
+    out->gz   = (int16_t)((raw[12] << 8) | raw[13]);
+
+    return 0;
+}
+
+
+// Buffer global y arranque del SPI slave
+
+#define SPI6_FRAME_LEN 16
+
+extern SPI_HandleTypeDef hspi6;
+
+uint8_t spi6_tx_buf[SPI6_FRAME_LEN];
+uint8_t spi6_rx_buf[SPI6_FRAME_LEN]; // por si quieres comandos más adelante
+
+void Start_SPI6_Slave(void)
+{
+    // Preparar cabecera
+    spi6_tx_buf[0] = 0xAA;
+    spi6_tx_buf[1] = 0x55;
+
+    // Arrancar recepción/transmisión en modo IT (full-duplex)
+    HAL_SPI_TransmitReceive_IT(&hspi6, spi6_tx_buf, spi6_rx_buf, SPI6_FRAME_LEN);
+}
+
+void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi)
+{
+    if (hspi->Instance == SPI6) {
+        // La Raspberry acaba de hacer una transacción completa de 16 bytes.
+        // Aquí podrías interpretar comandos en spi6_rx_buf si quisieras.
+
+        // Relanzar la siguiente transacción para estar siempre listo:
+        HAL_SPI_TransmitReceive_IT(&hspi6, spi6_tx_buf, spi6_rx_buf, SPI6_FRAME_LEN);
+    }
+}
+
 
 /* USER CODE END PFP */
 
@@ -93,9 +288,27 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_SPI1_Init();
+  MX_SPI6_Init();
+  MX_SPI2_Init();
   /* USER CODE BEGIN 2 */
 
+  ICM_CS_High();    // asegurarse
+  //if (ICM42688_Init() != 0) {
+      // error → parpadear LED, etc.
+  //}
+
+  int ret = ICM42688_Init();
+  if (ret != 0) {
+      // Si falla, para depurar: manda el código de error a la RPi
+      spi6_tx_buf[0] = 0xAA;
+      spi6_tx_buf[1] = 0x55;
+      for (int i = 2; i < 16; i++) spi6_tx_buf[i] = 0xE0 | (uint8_t)(-ret); // marca simple
+      // y puedes quedarte aquí o seguir
+  }
+
+  Start_SPI6_Slave();
+
+  ICM42688_Data_t imu;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -105,6 +318,36 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	    spi6_tx_buf[0]  = 0xAA;
+	    spi6_tx_buf[1]  = 0x55;
+
+	    if (ICM42688_ReadData(&imu) == 0) {
+	        spi6_tx_buf[2]  = (uint8_t)(imu.temp >> 8);
+	        spi6_tx_buf[3]  = (uint8_t)(imu.temp & 0xFF);
+
+	        spi6_tx_buf[4]  = (uint8_t)(imu.ax >> 8);
+	        spi6_tx_buf[5]  = (uint8_t)(imu.ax & 0xFF);
+
+	        spi6_tx_buf[6]  = (uint8_t)(imu.ay >> 8);
+	        spi6_tx_buf[7]  = (uint8_t)(imu.ay & 0xFF);
+
+	        spi6_tx_buf[8]  = (uint8_t)(imu.az >> 8);
+	        spi6_tx_buf[9]  = (uint8_t)(imu.az & 0xFF);
+
+	        spi6_tx_buf[10] = (uint8_t)(imu.gx >> 8);
+	        spi6_tx_buf[11] = (uint8_t)(imu.gx & 0xFF);
+
+	        spi6_tx_buf[12] = (uint8_t)(imu.gy >> 8);
+	        spi6_tx_buf[13] = (uint8_t)(imu.gy & 0xFF);
+
+	        spi6_tx_buf[14] = (uint8_t)(imu.gz >> 8);
+	        spi6_tx_buf[15] = (uint8_t)(imu.gz & 0xFF);
+	    } else {
+	        // Si falla lectura IMU: deja una marca
+	        for (int i = 2; i < 16; i++) spi6_tx_buf[i] = 0xEE;
+	    }
+
+	    HAL_Delay(10);
   }
   /* USER CODE END 3 */
 }
@@ -169,50 +412,97 @@ void SystemClock_Config(void)
 }
 
 /**
-  * @brief SPI1 Initialization Function
+  * @brief SPI2 Initialization Function
   * @param None
   * @retval None
   */
-static void MX_SPI1_Init(void)
+static void MX_SPI2_Init(void)
 {
 
-  /* USER CODE BEGIN SPI1_Init 0 */
+  /* USER CODE BEGIN SPI2_Init 0 */
 
-  /* USER CODE END SPI1_Init 0 */
+  /* USER CODE END SPI2_Init 0 */
 
-  /* USER CODE BEGIN SPI1_Init 1 */
+  /* USER CODE BEGIN SPI2_Init 1 */
 
-  /* USER CODE END SPI1_Init 1 */
-  /* SPI1 parameter configuration*/
-  hspi1.Instance = SPI1;
-  hspi1.Init.Mode = SPI_MODE_MASTER;
-  hspi1.Init.Direction = SPI_DIRECTION_2LINES;
-  hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
-  hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
-  hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
-  hspi1.Init.NSS = SPI_NSS_SOFT;
-  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
-  hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
-  hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
-  hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
-  hspi1.Init.CRCPolynomial = 0x0;
-  hspi1.Init.NSSPMode = SPI_NSS_PULSE_ENABLE;
-  hspi1.Init.NSSPolarity = SPI_NSS_POLARITY_LOW;
-  hspi1.Init.FifoThreshold = SPI_FIFO_THRESHOLD_01DATA;
-  hspi1.Init.TxCRCInitializationPattern = SPI_CRC_INITIALIZATION_ALL_ZERO_PATTERN;
-  hspi1.Init.RxCRCInitializationPattern = SPI_CRC_INITIALIZATION_ALL_ZERO_PATTERN;
-  hspi1.Init.MasterSSIdleness = SPI_MASTER_SS_IDLENESS_00CYCLE;
-  hspi1.Init.MasterInterDataIdleness = SPI_MASTER_INTERDATA_IDLENESS_00CYCLE;
-  hspi1.Init.MasterReceiverAutoSusp = SPI_MASTER_RX_AUTOSUSP_DISABLE;
-  hspi1.Init.MasterKeepIOState = SPI_MASTER_KEEP_IO_STATE_DISABLE;
-  hspi1.Init.IOSwap = SPI_IO_SWAP_DISABLE;
-  if (HAL_SPI_Init(&hspi1) != HAL_OK)
+  /* USER CODE END SPI2_Init 1 */
+  /* SPI2 parameter configuration*/
+  hspi2.Instance = SPI2;
+  hspi2.Init.Mode = SPI_MODE_MASTER;
+  hspi2.Init.Direction = SPI_DIRECTION_2LINES;
+  hspi2.Init.DataSize = SPI_DATASIZE_8BIT;
+  hspi2.Init.CLKPolarity = SPI_POLARITY_LOW;
+  hspi2.Init.CLKPhase = SPI_PHASE_1EDGE;
+  hspi2.Init.NSS = SPI_NSS_SOFT;
+  hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_64;
+  hspi2.Init.FirstBit = SPI_FIRSTBIT_MSB;
+  hspi2.Init.TIMode = SPI_TIMODE_DISABLE;
+  hspi2.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+  hspi2.Init.CRCPolynomial = 0x0;
+  hspi2.Init.NSSPMode = SPI_NSS_PULSE_DISABLE;
+  hspi2.Init.NSSPolarity = SPI_NSS_POLARITY_LOW;
+  hspi2.Init.FifoThreshold = SPI_FIFO_THRESHOLD_01DATA;
+  hspi2.Init.TxCRCInitializationPattern = SPI_CRC_INITIALIZATION_ALL_ZERO_PATTERN;
+  hspi2.Init.RxCRCInitializationPattern = SPI_CRC_INITIALIZATION_ALL_ZERO_PATTERN;
+  hspi2.Init.MasterSSIdleness = SPI_MASTER_SS_IDLENESS_00CYCLE;
+  hspi2.Init.MasterInterDataIdleness = SPI_MASTER_INTERDATA_IDLENESS_00CYCLE;
+  hspi2.Init.MasterReceiverAutoSusp = SPI_MASTER_RX_AUTOSUSP_DISABLE;
+  hspi2.Init.MasterKeepIOState = SPI_MASTER_KEEP_IO_STATE_DISABLE;
+  hspi2.Init.IOSwap = SPI_IO_SWAP_DISABLE;
+  if (HAL_SPI_Init(&hspi2) != HAL_OK)
   {
     Error_Handler();
   }
-  /* USER CODE BEGIN SPI1_Init 2 */
+  /* USER CODE BEGIN SPI2_Init 2 */
 
-  /* USER CODE END SPI1_Init 2 */
+  /* USER CODE END SPI2_Init 2 */
+
+}
+
+/**
+  * @brief SPI6 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_SPI6_Init(void)
+{
+
+  /* USER CODE BEGIN SPI6_Init 0 */
+
+  /* USER CODE END SPI6_Init 0 */
+
+  /* USER CODE BEGIN SPI6_Init 1 */
+
+  /* USER CODE END SPI6_Init 1 */
+  /* SPI6 parameter configuration*/
+  hspi6.Instance = SPI6;
+  hspi6.Init.Mode = SPI_MODE_SLAVE;
+  hspi6.Init.Direction = SPI_DIRECTION_2LINES;
+  hspi6.Init.DataSize = SPI_DATASIZE_8BIT;
+  hspi6.Init.CLKPolarity = SPI_POLARITY_LOW;
+  hspi6.Init.CLKPhase = SPI_PHASE_1EDGE;
+  hspi6.Init.NSS = SPI_NSS_SOFT;
+  hspi6.Init.FirstBit = SPI_FIRSTBIT_MSB;
+  hspi6.Init.TIMode = SPI_TIMODE_DISABLE;
+  hspi6.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+  hspi6.Init.CRCPolynomial = 0x0;
+  hspi6.Init.NSSPMode = SPI_NSS_PULSE_DISABLE;
+  hspi6.Init.NSSPolarity = SPI_NSS_POLARITY_LOW;
+  hspi6.Init.FifoThreshold = SPI_FIFO_THRESHOLD_01DATA;
+  hspi6.Init.TxCRCInitializationPattern = SPI_CRC_INITIALIZATION_ALL_ZERO_PATTERN;
+  hspi6.Init.RxCRCInitializationPattern = SPI_CRC_INITIALIZATION_ALL_ZERO_PATTERN;
+  hspi6.Init.MasterSSIdleness = SPI_MASTER_SS_IDLENESS_00CYCLE;
+  hspi6.Init.MasterInterDataIdleness = SPI_MASTER_INTERDATA_IDLENESS_00CYCLE;
+  hspi6.Init.MasterReceiverAutoSusp = SPI_MASTER_RX_AUTOSUSP_DISABLE;
+  hspi6.Init.MasterKeepIOState = SPI_MASTER_KEEP_IO_STATE_DISABLE;
+  hspi6.Init.IOSwap = SPI_IO_SWAP_DISABLE;
+  if (HAL_SPI_Init(&hspi6) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN SPI6_Init 2 */
+
+  /* USER CODE END SPI6_Init 2 */
 
 }
 
@@ -229,17 +519,34 @@ static void MX_GPIO_Init(void)
   /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOE_CLK_ENABLE();
   __HAL_RCC_GPIOC_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOE, GPIO_PIN_5|GPIO_PIN_6, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOC, GPIO_PIN_5, GPIO_PIN_SET);
+
+  /*Configure GPIO pins : PE5 PE6 */
+  GPIO_InitStruct.Pin = GPIO_PIN_5|GPIO_PIN_6;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+  HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PC5 */
   GPIO_InitStruct.Pin = GPIO_PIN_5;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PC11 */
+  GPIO_InitStruct.Pin = GPIO_PIN_11;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
