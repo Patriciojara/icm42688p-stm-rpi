@@ -59,9 +59,33 @@ static void MX_SPI2_Init(void);
 static void MX_SPI1_Init(void);
 /* USER CODE BEGIN PFP */
 
+HAL_StatusTypeDef AK09940_SoftReset(void);
+HAL_StatusTypeDef AK09940_SetModeSafe(uint8_t mode);
 
 
 //AK099
+
+
+
+#define AK09940_REG_WIA1   0x00
+#define AK09940_REG_WIA2   0x01
+#define AK09940_REG_ST1    0x10
+#define AK09940_REG_HXL    0x11
+#define AK09940_REG_HXM    0x12
+#define AK09940_REG_HXH    0x13
+#define AK09940_REG_HYL    0x14
+#define AK09940_REG_HYM    0x15
+#define AK09940_REG_HYH    0x16
+#define AK09940_REG_HZL    0x17
+#define AK09940_REG_HZM    0x18
+#define AK09940_REG_HZH    0x19
+#define AK09940_REG_ST2    0x1B
+
+#define AK09940_REG_CNTL3  0x32   // MODE[4:0] está aquí :contentReference[oaicite:1]{index=1}
+#define AK09940_REG_CNTL4  0x33   // SRST está aquí :contentReference[oaicite:2]{index=2}
+
+
+
 // ===== AK09940A: CS por GPIO PB0 =====
 #define AK_CS_GPIO_Port   GPIOB
 #define AK_CS_Pin         GPIO_PIN_0
@@ -250,6 +274,10 @@ extern SPI_HandleTypeDef hspi6;
 uint8_t spi6_tx_buf[SPI6_FRAME_LEN];
 uint8_t spi6_rx_buf[SPI6_FRAME_LEN]; // por si quieres comandos más adelante
 
+static uint8_t frame_pending[SPI6_FRAME_LEN];
+static volatile uint8_t frame_pending_valid = 0;
+
+
 void Start_SPI6_Slave(void)
 {
     // Preparar cabecera
@@ -263,10 +291,16 @@ void Start_SPI6_Slave(void)
 void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi)
 {
     if (hspi->Instance == SPI6) {
-        // La Raspberry acaba de hacer una transacción completa de 16 bytes.
-        // Aquí podrías interpretar comandos en spi6_rx_buf si quisieras.
 
-        // Relanzar la siguiente transacción para estar siempre listo:
+        // Actualiza TX buffer SOLO cuando terminó la transacción anterior
+        if (frame_pending_valid) {
+            for (int i = 0; i < SPI6_FRAME_LEN; i++) {
+                spi6_tx_buf[i] = frame_pending[i];
+            }
+            frame_pending_valid = 0;
+        }
+
+        // Rearmar siguiente transacción
         HAL_SPI_TransmitReceive_IT(&hspi6, spi6_tx_buf, spi6_rx_buf, SPI6_FRAME_LEN);
     }
 }
@@ -316,6 +350,10 @@ int main(void)
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
 
+  //uint8_t w1 = AK09940_ReadReg(0x00);
+  //uint8_t w2 = AK09940_ReadReg(0x01);
+  // Pon breakpoint aquí y mira w1/w2
+
   ICM_CS_High();    // asegurarse
   //if (ICM42688_Init() != 0) {
       // error → parpadear LED, etc.
@@ -325,12 +363,14 @@ int main(void)
   AK_CS_High(); // CS en reposo alto
 
   uint8_t w1=0, w2=0;
-  if (AK09940_CheckWhoAmI(&w1, &w2) != 0) {
-      // Si falla, puedes poner un breakpoint aquí o mandar w1/w2 por tu frame
-  }
+  AK09940_CheckWhoAmI(&w1, &w2);
 
-  // Modo continuo 100Hz (0x08 según tabla de modos)
-  AK09940_SetMode(0x08);
+  AK09940_SoftReset();
+
+  // Continuous measurement mode 4 = 100 Hz => MODE[4:0] = 01000b = 0x08 :contentReference[oaicite:8]{index=8}
+  AK09940_SetModeSafe(0x08);
+  HAL_Delay(10);
+
   //AK099
 
 
@@ -345,7 +385,7 @@ int main(void)
 
   Start_SPI6_Slave();
 
-  ICM42688_Data_t imu;
+  //ICM42688_Data_t imu;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -356,19 +396,14 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 	  uint8_t frame[SPI6_FRAME_LEN];
-
 	  frame[0] = 0xAA;
 	  frame[1] = 0x55;
 
-	  // status bits:
-	  // bit0 = IMU OK
-	  // bit1 = MAG OK
 	  uint8_t status = 0;
 
 	  ICM42688_Data_t imu;
-	  int16_t mx = 0, my = 0, mz = 0;
+	  int16_t mx=0, my=0, mz=0;
 
-	  // --- IMU ---
 	  if (ICM42688_ReadData(&imu) == 0) {
 	      status |= (1 << 0);
 
@@ -396,9 +431,7 @@ int main(void)
 	      for (int i = 2; i <= 15; i++) frame[i] = 0xEE;
 	  }
 
-	  // --- MAG ---
-	  int mag_ret = AK09940_ReadMagXYZ(&mx, &my, &mz);
-	  if (mag_ret == 0) {
+	  if (AK09940_ReadMagXYZ(&mx, &my, &mz) == 0) {
 	      status |= (1 << 1);
 
 	      frame[16] = (uint8_t)(mx >> 8);
@@ -410,7 +443,6 @@ int main(void)
 	      frame[20] = (uint8_t)(mz >> 8);
 	      frame[21] = (uint8_t)(mz & 0xFF);
 	  } else {
-	      // Si no hay dato nuevo (mag_ret==1) o error, marca igual
 	      frame[16] = frame[17] = 0xEF;
 	      frame[18] = frame[19] = 0xEF;
 	      frame[20] = frame[21] = 0xEF;
@@ -418,15 +450,15 @@ int main(void)
 
 	  frame[22] = status;
 
-	  // checksum XOR simple (bytes 0..22)
+	  // checksum XOR (0..22)
 	  uint8_t csum = 0;
 	  for (int i = 0; i <= 22; i++) csum ^= frame[i];
 	  frame[23] = csum;
 
-	  // Copia atómica rápida al buffer que usa SPI6 (evita corrupción durante transferencia)
-	  __disable_irq();
-	  for (int i = 0; i < SPI6_FRAME_LEN; i++) spi6_tx_buf[i] = frame[i];
-	  __enable_irq();
+	  // Publicar frame para que el callback lo tome cuando termine la transacción SPI6
+	  for (int i = 0; i < SPI6_FRAME_LEN; i++) frame_pending[i] = frame[i];
+	  frame_pending_valid = 1;
+
 
 	  HAL_Delay(10);
   }
@@ -512,15 +544,15 @@ static void MX_SPI1_Init(void)
   hspi1.Init.Mode = SPI_MODE_MASTER;
   hspi1.Init.Direction = SPI_DIRECTION_2LINES;
   hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
-  hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
-  hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
+  hspi1.Init.CLKPolarity = SPI_POLARITY_HIGH;
+  hspi1.Init.CLKPhase = SPI_PHASE_2EDGE;
   hspi1.Init.NSS = SPI_NSS_SOFT;
-  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_64;
+  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_256;
   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
   hspi1.Init.CRCPolynomial = 0x0;
-  hspi1.Init.NSSPMode = SPI_NSS_PULSE_ENABLE;
+  hspi1.Init.NSSPMode = SPI_NSS_PULSE_DISABLE;
   hspi1.Init.NSSPolarity = SPI_NSS_POLARITY_LOW;
   hspi1.Init.FifoThreshold = SPI_FIFO_THRESHOLD_01DATA;
   hspi1.Init.TxCRCInitializationPattern = SPI_CRC_INITIALIZATION_ALL_ZERO_PATTERN;
@@ -660,7 +692,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOC, GPIO_PIN_5, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
 
   /*Configure GPIO pins : PE5 PE6 */
   GPIO_InitStruct.Pin = GPIO_PIN_5|GPIO_PIN_6;
@@ -704,24 +736,66 @@ static void MX_GPIO_Init(void)
 // Protocolo SPI del AK: 1 byte "addr|R/W" (MSB=1 lectura, MSB=0 escritura), luego datos.
 // Lectura: enviar addr|0x80 + dummy, recibir dato en el segundo byte.
 
+
+
+HAL_StatusTypeDef AK09940_SoftReset(void)
+{
+    // CNTL4.SRST (bit0) :contentReference[oaicite:3]{index=3}
+    HAL_StatusTypeDef st = AK09940_WriteReg(AK09940_REG_CNTL4, 0x01);
+    HAL_Delay(2);
+    return st;
+    return st;
+}
+
+HAL_StatusTypeDef AK09940_SetModeSafe(uint8_t mode)
+{
+    HAL_StatusTypeDef st;
+
+    // Power-down: MODE=00000 :contentReference[oaicite:5]{index=5}
+    st = AK09940_WriteReg(AK09940_REG_CNTL3, 0x00);
+    HAL_Delay(2);
+    if (st != HAL_OK) return st;
+
+    st = AK09940_WriteReg(AK09940_REG_CNTL3, (mode & 0x1F));
+    HAL_Delay(2);
+    return st;
+}
+
+
+
+
+static inline void AK_SPI_Delay(void) {
+  for (volatile int i = 0; i < 50; i++) { __NOP(); }
+}
+
 uint8_t AK09940_ReadReg(uint8_t reg)
 {
     uint8_t tx[2] = { (uint8_t)(reg | 0x80), 0x00 };
     uint8_t rx[2] = { 0, 0 };
 
     AK_CS_Low();
+    AK_SPI_Delay();
+
     HAL_SPI_TransmitReceive(&hspi1, tx, rx, 2, HAL_MAX_DELAY);
+
+    AK_SPI_Delay();
     AK_CS_High();
 
     return rx[1];
 }
+
+
 
 HAL_StatusTypeDef AK09940_WriteReg(uint8_t reg, uint8_t val)
 {
     uint8_t tx[2] = { (uint8_t)(reg & 0x7F), val };
 
     AK_CS_Low();
+    AK_SPI_Delay();
+
     HAL_StatusTypeDef st = HAL_SPI_Transmit(&hspi1, tx, 2, HAL_MAX_DELAY);
+
+    AK_SPI_Delay();
     AK_CS_High();
 
     return st;
@@ -743,37 +817,76 @@ int AK09940_CheckWhoAmI(uint8_t *wia1, uint8_t *wia2)
 
 HAL_StatusTypeDef AK09940_SetMode(uint8_t mode)
 {
-    // CNTL2 típicamente 0x31 en AKM mags modernos, pero en AK09940A revisa tu datasheet:
-    // En tu parche usé el registro de modo correcto para AK09940A.
-    // Si tu datasheet dice CNTL2=0x31, deja así:
-    return AK09940_WriteReg(0x31, mode);
+    // MODE[4:0] en CNTL3 :contentReference[oaicite:4]{index=4}
+    return AK09940_WriteReg(AK09940_REG_CNTL3, (mode & 0x1F));
 }
 
+
+// Lee varios bytes consecutivos manteniendo CS bajo (burst)
+HAL_StatusTypeDef AK09940_ReadBurst(uint8_t startReg, uint8_t *data, uint16_t len)
+{
+    // Protocolo: primer byte = (addr | 0x80) lectura, luego clocks dummy
+    uint8_t cmd = (uint8_t)(startReg | 0x80);
+
+    AK_CS_Low();
+
+    // Enviar comando
+    HAL_StatusTypeDef st = HAL_SPI_Transmit(&hspi1, &cmd, 1, HAL_MAX_DELAY);
+    if (st != HAL_OK) { AK_CS_High(); return st; }
+
+    // Recibir 'len' bytes
+    st = HAL_SPI_Receive(&hspi1, data, len, HAL_MAX_DELAY);
+
+    AK_CS_High();
+    return st;
+}
+
+// Sign extend 18-bit a int32
+static int32_t ak09940_sign_extend_18(uint32_t v)
+{
+    v &= 0x3FFFF;                       // 18 bits
+    if (v & (1UL << 17)) v |= ~0x3FFFFUL; // extender signo
+    return (int32_t)v;
+}
+
+// Lee X/Y/Z del magnetómetro (18-bit) y entrega int16 (18->16 con >>2)
 int AK09940_ReadMagXYZ(int16_t *mx, int16_t *my, int16_t *mz)
 {
-    // Secuencia típica:
-    // 1) leer ST1 y revisar DRDY
-    // 2) leer HXL..HZH (6 bytes)
-    // 3) leer ST2 al final (requerido)
+    uint8_t st1 = AK09940_ReadReg(AK09940_REG_ST1);
 
-    uint8_t st1 = AK09940_ReadReg(0x10); // ST1 (revisa dirección exacta en tu datasheet)
-    if ((st1 & 0x01) == 0) {
-        return 1; // no hay dato nuevo
+    // Si ST1 es 0xFF o 0x00, NO es lectura real (bus flotante / sin respuesta)
+    if (st1 == 0xFF || st1 == 0x00) return -3;
+
+    // DRDY
+    if ((st1 & 0x01) == 0) return 1;
+
+    // Burst de 9 bytes: HXL..HZH
+    uint8_t d[9] = {0};
+    if (AK09940_ReadBurst(AK09940_REG_HXL, d, 9) != HAL_OK) return -4;
+
+    // Si todo viene 0xFF, tampoco es real
+    int all_ff = 1;
+    for (int i = 0; i < 9; i++) {
+        if (d[i] != 0xFF) { all_ff = 0; break; }
     }
+    if (all_ff) return -5;
 
-    // Lectura burst: si quieres hacerlo más eficiente, se puede leer 6 bytes en una sola transacción.
-    uint8_t hxL = AK09940_ReadReg(0x11);
-    uint8_t hxH = AK09940_ReadReg(0x12);
-    uint8_t hyL = AK09940_ReadReg(0x13);
-    uint8_t hyH = AK09940_ReadReg(0x14);
-    uint8_t hzL = AK09940_ReadReg(0x15);
-    uint8_t hzH = AK09940_ReadReg(0x16);
+    // Cerrar secuencia (recomendado)
+    (void)AK09940_ReadReg(AK09940_REG_ST2);
 
-    (void)AK09940_ReadReg(0x18); // ST2 (revisa dirección exacta en tu datasheet)
+    // X = HXL,HXM,HXH(2 LSB)
+    uint32_t x18 = ((uint32_t)(d[2] & 0x03) << 16) | ((uint32_t)d[1] << 8) | d[0];
+    uint32_t y18 = ((uint32_t)(d[5] & 0x03) << 16) | ((uint32_t)d[4] << 8) | d[3];
+    uint32_t z18 = ((uint32_t)(d[8] & 0x03) << 16) | ((uint32_t)d[7] << 8) | d[6];
 
-    if (mx) *mx = (int16_t)((hxH << 8) | hxL);
-    if (my) *my = (int16_t)((hyH << 8) | hyL);
-    if (mz) *mz = (int16_t)((hzH << 8) | hzL);
+    int32_t xs = ak09940_sign_extend_18(x18);
+    int32_t ys = ak09940_sign_extend_18(y18);
+    int32_t zs = ak09940_sign_extend_18(z18);
+
+    // 18-bit -> 16-bit (divide por 4)
+    if (mx) *mx = (int16_t)(xs >> 2);
+    if (my) *my = (int16_t)(ys >> 2);
+    if (mz) *mz = (int16_t)(zs >> 2);
 
     return 0;
 }

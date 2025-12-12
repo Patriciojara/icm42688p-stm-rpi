@@ -3,16 +3,14 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="false"/>
 	<list key="searchhistory">
-<<<<<<< HEAD
-		<item value="ICM42688_Data_t"/>
-		<item value="PWR_MGMT0"/>
-=======
->>>>>>> c57c3afd9eaadf1f80aa2ad91014316c7bf682a4
-		<item value="hspi1"/>
+		<item value="AK09940_ReadMagXYZ"/>
+		<item value="init"/>
+		<item value=" AK09940_SetModeSafe(uint8_t mode)"/>
+		<item value="AK09940_SoftReset"/>
+		<item value="HAL_StatusTypeDef AK09940_SoftReset(void)"/>
+		<item value="HAL_StatusTypeDef AK09940_SoftReset(void);"/>
+		<item value="AK09940_ReadReg"/>
 		<item value="spi6_tx_buf"/>
-		<item value="spi6_tx_buf[15]"/>
-		<item value=" HAL_SPI_TransmitReceive_IT"/>
-		<item value="buf[1];"/>
-		<item value="ICM_CS_Pin"/>
+		<item value="FRAME_LEN "/>
 	</list>
 </section>

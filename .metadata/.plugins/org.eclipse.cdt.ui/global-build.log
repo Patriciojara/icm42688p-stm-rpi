@@ -1113,3 +1113,324 @@ Finished building: default.size.stdout
  
 Finished building: icm42688p.list
  
+19:24:22 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:368:11: error: unknown type name 'ICM42688_Data'; did you mean 'ICM42688_Data_t'?
+  368 |           ICM42688_Data imu;
+      |           ^~~~~~~~~~~~~
+      |           ICM42688_Data_t
+../Core/Src/main.c:372:33: warning: passing argument 1 of 'ICM42688_ReadData' from incompatible pointer type [-Wincompatible-pointer-types]
+  372 |           if (ICM42688_ReadData(&imu) == 0) {
+      |                                 ^~~~
+      |                                 |
+      |                                 int *
+../Core/Src/main.c:223:40: note: expected 'ICM42688_Data_t *' but argument is of type 'int *'
+  223 | int ICM42688_ReadData(ICM42688_Data_t *out)
+      |                       ~~~~~~~~~~~~~~~~~^~~
+../Core/Src/main.c:375:40: error: request for member 'temp' in something not a structure or union
+  375 |               frame[2]  = (uint8_t)(imu.temp >> 8);
+      |                                        ^
+../Core/Src/main.c:376:40: error: request for member 'temp' in something not a structure or union
+  376 |               frame[3]  = (uint8_t)(imu.temp & 0xFF);
+      |                                        ^
+../Core/Src/main.c:378:40: error: request for member 'ax' in something not a structure or union
+  378 |               frame[4]  = (uint8_t)(imu.ax >> 8);
+      |                                        ^
+../Core/Src/main.c:379:40: error: request for member 'ax' in something not a structure or union
+  379 |               frame[5]  = (uint8_t)(imu.ax & 0xFF);
+      |                                        ^
+../Core/Src/main.c:381:40: error: request for member 'ay' in something not a structure or union
+  381 |               frame[6]  = (uint8_t)(imu.ay >> 8);
+      |                                        ^
+../Core/Src/main.c:382:40: error: request for member 'ay' in something not a structure or union
+  382 |               frame[7]  = (uint8_t)(imu.ay & 0xFF);
+      |                                        ^
+../Core/Src/main.c:384:40: error: request for member 'az' in something not a structure or union
+  384 |               frame[8]  = (uint8_t)(imu.az >> 8);
+      |                                        ^
+../Core/Src/main.c:385:40: error: request for member 'az' in something not a structure or union
+  385 |               frame[9]  = (uint8_t)(imu.az & 0xFF);
+      |                                        ^
+../Core/Src/main.c:387:40: error: request for member 'gx' in something not a structure or union
+  387 |               frame[10] = (uint8_t)(imu.gx >> 8);
+      |                                        ^
+../Core/Src/main.c:388:40: error: request for member 'gx' in something not a structure or union
+  388 |               frame[11] = (uint8_t)(imu.gx & 0xFF);
+      |                                        ^
+../Core/Src/main.c:390:40: error: request for member 'gy' in something not a structure or union
+  390 |               frame[12] = (uint8_t)(imu.gy >> 8);
+      |                                        ^
+../Core/Src/main.c:391:40: error: request for member 'gy' in something not a structure or union
+  391 |               frame[13] = (uint8_t)(imu.gy & 0xFF);
+      |                                        ^
+../Core/Src/main.c:393:40: error: request for member 'gz' in something not a structure or union
+  393 |               frame[14] = (uint8_t)(imu.gz >> 8);
+      |                                        ^
+../Core/Src/main.c:394:40: error: request for member 'gz' in something not a structure or union
+  394 |               frame[15] = (uint8_t)(imu.gz & 0xFF);
+      |                                        ^
+../Core/Src/main.c:348:19: warning: unused variable 'imu' [-Wunused-variable]
+  348 |   ICM42688_Data_t imu;
+      |                   ^~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+19:25:19 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:348:19: warning: unused variable 'imu' [-Wunused-variable]
+  348 |   ICM42688_Data_t imu;
+      |                   ^~~
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  24880	     16	   2024	  26920	   6928	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+19:25:51 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  24892	     16	   2024	  26932	   6934	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+19:28:00 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  24876	     16	   2024	  26916	   6924	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+19:50:54 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  24948	     16	   2056	  27020	   698c	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+19:51:05 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  24952	     16	   2056	  27024	   6990	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+19:53:42 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  24952	     16	   2056	  27024	   6990	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+19:56:30 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  25144	     16	   2056	  27216	   6a50	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+19:57:23 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  25144	     16	   2056	  27216	   6a50	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+20:00:12 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  25144	     16	   2056	  27216	   6a50	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+20:00:38 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  25144	     16	   2056	  27216	   6a50	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+20:04:01 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:343:3: warning: implicit declaration of function 'AK09940_SoftReset'; did you mean 'AK09940_SetMode'? [-Wimplicit-function-declaration]
+  343 |   AK09940_SoftReset();
+      |   ^~~~~~~~~~~~~~~~~
+      |   AK09940_SetMode
+../Core/Src/main.c:344:3: warning: implicit declaration of function 'AK09940_SetModeSafe'; did you mean 'AK09940_SetMode'? [-Wimplicit-function-declaration]
+  344 |   AK09940_SetModeSafe(0x08);   // continuo 100Hz
+      |   ^~~~~~~~~~~~~~~~~~~
+      |   AK09940_SetMode
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:714:19: error: conflicting types for 'AK09940_SoftReset'; have 'HAL_StatusTypeDef(void)'
+  714 | HAL_StatusTypeDef AK09940_SoftReset(void)
+      |                   ^~~~~~~~~~~~~~~~~
+../Core/Src/main.c:343:3: note: previous implicit declaration of 'AK09940_SoftReset' with type 'int()'
+  343 |   AK09940_SoftReset();
+      |   ^~~~~~~~~~~~~~~~~
+../Core/Src/main.c:722:19: error: conflicting types for 'AK09940_SetModeSafe'; have 'HAL_StatusTypeDef(uint8_t)' {aka 'HAL_StatusTypeDef(unsigned char)'}
+  722 | HAL_StatusTypeDef AK09940_SetModeSafe(uint8_t mode)
+      |                   ^~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:344:3: note: previous implicit declaration of 'AK09940_SetModeSafe' with type 'int()'
+  344 |   AK09940_SetModeSafe(0x08);   // continuo 100Hz
+      |   ^~~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+20:05:02 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:343:3: warning: implicit declaration of function 'AK09940_SoftReset'; did you mean 'AK09940_SetMode'? [-Wimplicit-function-declaration]
+  343 |   AK09940_SoftReset();
+      |   ^~~~~~~~~~~~~~~~~
+      |   AK09940_SetMode
+../Core/Src/main.c:344:3: warning: implicit declaration of function 'AK09940_SetModeSafe'; did you mean 'AK09940_SetMode'? [-Wimplicit-function-declaration]
+  344 |   AK09940_SetModeSafe(0x08);   // continuo 100Hz
+      |   ^~~~~~~~~~~~~~~~~~~
+      |   AK09940_SetMode
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:714:19: error: conflicting types for 'AK09940_SoftReset'; have 'HAL_StatusTypeDef(void)'
+  714 | HAL_StatusTypeDef AK09940_SoftReset(void)
+      |                   ^~~~~~~~~~~~~~~~~
+../Core/Src/main.c:343:3: note: previous implicit declaration of 'AK09940_SoftReset' with type 'int()'
+  343 |   AK09940_SoftReset();
+      |   ^~~~~~~~~~~~~~~~~
+../Core/Src/main.c:722:19: error: conflicting types for 'AK09940_SetModeSafe'; have 'HAL_StatusTypeDef(uint8_t)' {aka 'HAL_StatusTypeDef(unsigned char)'}
+  722 | HAL_StatusTypeDef AK09940_SetModeSafe(uint8_t mode)
+      |                   ^~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:344:3: note: previous implicit declaration of 'AK09940_SetModeSafe' with type 'int()'
+  344 |   AK09940_SetModeSafe(0x08);   // continuo 100Hz
+      |   ^~~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+20:09:14 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  25248	     16	   2056	  27320	   6ab8	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+20:16:20 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  25268	     16	   2056	  27340	   6acc	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
+20:33:25 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:365:11: error: redefinition of 'w1'
+  365 |   uint8_t w1=0, w2=0;
+      |           ^~
+../Core/Src/main.c:353:11: note: previous definition of 'w1' with type 'uint8_t' {aka 'unsigned char'}
+  353 |   uint8_t w1 = AK09940_ReadReg(0x00);
+      |           ^~
+../Core/Src/main.c:365:17: error: redefinition of 'w2'
+  365 |   uint8_t w1=0, w2=0;
+      |                 ^~
+../Core/Src/main.c:354:11: note: previous definition of 'w2' with type 'uint8_t' {aka 'unsigned char'}
+  354 |   uint8_t w2 = AK09940_ReadReg(0x01);
+      |           ^~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+20:36:46 **** Incremental Build of configuration Debug for project icm42688p ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H723xx -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "icm42688p.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\SPEL\Desktop\SPEL\icm42688p-stm-rpi\icm42688p\STM32H723VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="icm42688p.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: icm42688p.elf
+ 
+arm-none-eabi-size  icm42688p.elf 
+arm-none-eabi-objdump -h -S icm42688p.elf  > "icm42688p.list"
+   text	   data	    bss	    dec	    hex	filename
+  25356	     16	   2056	  27428	   6b24	icm42688p.elf
+Finished building: default.size.stdout
+ 
+Finished building: icm42688p.list
+ 
