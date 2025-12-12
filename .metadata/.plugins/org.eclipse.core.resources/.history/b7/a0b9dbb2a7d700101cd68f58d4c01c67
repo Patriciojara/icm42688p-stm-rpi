@@ -365,7 +365,7 @@ int main(void)
 	  // bit1 = MAG OK
 	  uint8_t status = 0;
 
-	  ICM42688_Data_t imu;
+	  ICM42688_Data imu_t;
 	  int16_t mx = 0, my = 0, mz = 0;
 
 	  // --- IMU ---
