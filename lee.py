@@ -30,3 +30,6 @@ def parse_frame(rx):
         "gx": gx, "gy": gy, "gz": gz,
         "gx_dps": gx_dps, "gy_dps": gy_dps, "gz_dps": gz_dps,
     }
+
+while True:
+    print(parse_frame)
